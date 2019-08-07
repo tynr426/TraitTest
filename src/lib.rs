@@ -2,6 +2,10 @@ pub trait Summary {
     fn summarize(&self) -> String {
         String::from("(Read more...)")
     }
+    //fn summarize_author(&self)->String;
+}
+pub trait Display{
+    fn print_author(&self) -> String ;
 }
 pub struct NewsArticle {
     pub headline: String,
@@ -23,8 +27,14 @@ pub struct Tweet {
     pub retweet: bool,
 }
 
-impl Summary for Tweet {
+impl Summary for Tweet{
     fn summarize(&self) -> String {
         format!("{}: {}", self.username, self.content)
+    }
+  
+}
+impl Display for Tweet{
+      fn print_author(&self)-> String {
+        format!("dispaly:{}:{}",self.username,self.content)
     }
 }
